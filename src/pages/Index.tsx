@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code2, Users, Trophy, Target, MapPin, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -27,16 +29,12 @@ const Index = () => {
               Build together, earn rewards, and level up your skills.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/browse">
-                <Button size="lg" className="bg-gradient-hero hover:opacity-90 text-lg px-8">
-                  Find Partners Now
-                </Button>
-              </Link>
-              <Link to="/dashboard">
-                <Button size="lg" variant="outline" className="text-lg px-8">
-                  View Dashboard
-                </Button>
-              </Link>
+              <Button size="lg" className="bg-gradient-hero hover:opacity-90 text-lg px-8" onClick={() => navigate('/auth')}>
+                Find Partners Now
+              </Button>
+              <Button size="lg" variant="outline" className="text-lg px-8" onClick={() => navigate('/browse')}>
+                Browse Partners
+              </Button>
             </div>
           </div>
         </div>
